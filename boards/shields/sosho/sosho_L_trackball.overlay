@@ -1,8 +1,10 @@
 #include "sosho_L.dtsi"
 
 &spi1 { status = "okay"; };
-&trackball{ status = "okay"; };
-&trackball_split{
+&trackball { status = "okay"; };
+
+// L側トラックボール（reg = 1）へ接続
+&trackball_split_L {
     status = "okay";
     device = <&trackball>;
 };

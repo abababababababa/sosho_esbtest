@@ -25,5 +25,8 @@ manifest:
       remote: elekit-official
       revision: main
       path: modules/zmk_encoder
+    - name: zmk-feature-split-esb
+      remote: badjeff
+      revision: main
   self:
     path: config

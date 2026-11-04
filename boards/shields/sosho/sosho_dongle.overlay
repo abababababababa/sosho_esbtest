@@ -1,0 +1,46 @@
+#include "sosho.dtsi"
+#include <dt-bindings/zmk/input_transform.h>
+#include <input/processors.dtsi>
+
+/ {
+    chosen {
+        zmk,kscan = &mock_kscan;
+    };
+
+    mock_kscan: kscan_0 {
+        compatible = "zmk,kscan-mock";
+        columns = <0>;
+        rows = <0>;
+        events = <0>;
+    };
+};
+
+&kscan0 {
+    status = "disabled";
+};
+
+/* --- 4つの受信リスナーを常時すべて有効化 --- */
+// 1. L側 トラックパッド
+&glidepoint_split_L { status = "okay"; };
+&glidepoint_listener_L {
+    status = "okay";
+};
+
+// 2. L側 トラックボール
+&trackball_split_L { status = "okay"; };
+&trackball_listener_L {
+    status = "okay";
+};
+
+// 3. R側 トラックパッド
+&glidepoint_split_R { status = "okay"; };
+&glidepoint_listener_R {
+    status = "okay";
+};
+
+// 4. R側 トラックボール（反転処理を適用）
+&trackball_split_R { status = "okay"; };
+&trackball_listener_R {
+    status = "okay";
+    input-processors = <&zip_xy_transform (INPUT_TRANSFORM_X_INVERT | INPUT_TRANSFORM_Y_INVERT)>;
+};

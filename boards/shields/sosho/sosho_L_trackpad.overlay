@@ -5,7 +5,9 @@
     status = "okay";
     invert-x;
 };
-&glidepoint_split {
+
+// L側トラックパッド（reg = 0）へ接続
+&glidepoint_split_L {
     status = "okay";
     device = <&glidepoint>;
 };
