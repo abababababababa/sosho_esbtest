@@ -15,6 +15,10 @@
     };
 };
 
+&physical_layout0 {
+    kscan = <&mock_kscan>;
+};
+
 &kscan0 {
     status = "disabled";
 };
